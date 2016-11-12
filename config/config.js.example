@@ -1,0 +1,11 @@
+// Application Configuration. 
+module.exports = {
+
+  'port': 8080,
+  'db_url': 'mongodb://localhost:27017/sgl',
+  'jwt': {
+    'secret': 'Auth0 secret',
+    'audience': 'Auth0 audience'
+  }
+
+};
