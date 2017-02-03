@@ -1,20 +1,21 @@
 // Libraries
-var express     = require('express');
-var app         = express();
-var bodyParser  = require('body-parser');
-var cors        = require('cors')
-var mongoose    = require('mongoose');
-var morgan = require("morgan")
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const morgan = require('morgan');
 
 // Configs
-var config      = require('./config/config.js')
-var port        = process.env.PORT || config.port;
-var corsOptions = {
+const config = require('./config/config.json');
+
+const port = process.env.PORT || config.port;
+const corsOptions = {
   origin: '*',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
 // Express setup
+const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
@@ -24,8 +25,8 @@ app.use(morgan('combined'));
 mongoose.connect(config.db_url);
 
 // Routes
-require("./routes.js")(app);
+require('./routes.js')(app);
 
 // Main
 app.listen(port);
-console.log('Server started at http://localhost:' + port);
+console.log('Server started at http://localhost: %s', port);

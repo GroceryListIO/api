@@ -1,8 +1,15 @@
 var jwt      = require('express-jwt');
-var config   = require('./config/config.js')
+var config   = require('./config/config.json')
 
 // Models
-var List = require('./models/list');
+var List = require('./models/list')
+
+// jwt auth config
+var jwtCheck = jwt({
+  secret: new Buffer(config.jwt.secret, 'base64'),
+  audience: config.jwt.audience
+});
+
 
 module.exports = function (app) {
 
@@ -67,8 +74,3 @@ module.exports = function (app) {
 
 }; // end module.exports
 
-// jwt auth config
-var jwtCheck = jwt({
-  secret: new Buffer(config.jwt.secret, 'base64'),
-  audience: config.jwt.audience
-});
