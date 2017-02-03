@@ -2,18 +2,25 @@
   "name": "node-jwt-api",
   "version": "1.0.0",
   "description": "",
+  "repository": "https://github.com/SmartGroceryList/api",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Warning: Placeholder until actual tests are created. Will always pass.\" && exit 0"
+    "test": "./node_modules/.bin/eslint index.js routes models"
   },
   "author": "russell perkins",
-  "license": "UNLICENSED",
+  "license": "CC-BY-NC-4.0",
   "dependencies": {
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "express": "^4.14.0",
+    "express-jwt": "^5.1.0",
     "mongoose": "^4.6.7",
     "morgan": "^1.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.14.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-import": "^2.2.0"
   }
 }
