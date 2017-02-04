@@ -1,10 +1,13 @@
 # Smart Grocery List API
 
 [![Build Status](https://travis-ci.org/SmartGroceryList/api.svg?branch=master)](https://travis-ci.org/SmartGroceryList/api)
+[![Build Status](https://david-dm.org/SmartGroceryList/api.svg)](https://david-dm.org/SmartGroceryList/api)
+
+https://david-dm.org/SmartGroceryList/api.svg
 
 ## Getting Started
 
-Copy the `config.js.example` file in the `config` directory and provide your Auth0 details.
+Environment variables jwtsecret and jwtaudience must be set for authentication to work.
 
 Install the npm packages described in the package.json and verify that it works:
 
