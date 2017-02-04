@@ -1,0 +1,144 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "SGL API"
+    },
+    "paths": {
+        "/health": {
+            "get": {
+                "tags": [
+                    "Defaults"
+                ],
+                "description": "Returns the servers health status.",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/list": {
+            "get": {
+                "tags": [
+                    "Lists"
+                ],
+                "description": "Returns all lists",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/list"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Lists"
+                ],
+                "description": "Create a list",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "body",
+                        "description": "Name the list",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/list"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/item": {
+            "get": {
+                "tags": [
+                    "Items"
+                ],
+                "description": "Returns all lists",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/item"
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Items"
+                ],
+                "description": "Create a item",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "body",
+                        "description": "Name the list",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/item"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "list": {
+            "type": "object",
+            "required": [
+                "_id",
+                "name"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        },
+        "item": {
+            "type": "object",
+            "required": [
+                "_id",
+                "name"
+            ],
+            "properties": {
+                "_id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
