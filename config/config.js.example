@@ -1,4 +1,6 @@
 // Application Configuration. 
+// ToDo: Move out of file and into env vars
+
 module.exports = {
 
   'port': 8080,

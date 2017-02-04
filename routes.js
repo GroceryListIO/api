@@ -1,5 +1,5 @@
 var jwt      = require('express-jwt');
-var config   = require('./config/config.json')
+var config   = require('./config/config.js')
 
 // Models
 var List = require('./models/list')
@@ -13,15 +13,14 @@ var jwtCheck = jwt({
 
 module.exports = function (app) {
 
+  // Seperated Routes 
+  app.use(require('./routes/healthCheck'));
+
   // ========================================
   //  Default Routes
   // ========================================
   app.get('/', function(req, res) {
       res.send();
-  });
-
-  app.get('/health', function(req, res) {
-      res.json({ "STATUS": "UP" })
   });
 
   app.use('/secured', jwtCheck); // Protected

@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 
 // Configs
-const config = require('./config/config.json');
+const config = require('./config/config.js');
 
 const port = process.env.PORT || config.port;
 const corsOptions = {
