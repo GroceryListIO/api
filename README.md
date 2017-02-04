@@ -3,8 +3,6 @@
 [![Build Status](https://travis-ci.org/SmartGroceryList/api.svg?branch=master)](https://travis-ci.org/SmartGroceryList/api)
 [![Build Status](https://david-dm.org/SmartGroceryList/api.svg)](https://david-dm.org/SmartGroceryList/api)
 
-https://david-dm.org/SmartGroceryList/api.svg
-
 ## Getting Started
 
 Environment variables jwtsecret and jwtaudience must be set for authentication to work.
