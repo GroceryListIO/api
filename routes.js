@@ -16,6 +16,8 @@ module.exports = function (app) {
   // Seperated Routes 
   app.use(require('./routes/healthCheck'));
 
+  app.use(require('./routes/lists', jwtCheck));
+
   // ========================================
   //  Default Routes
   // ========================================
@@ -28,37 +30,6 @@ module.exports = function (app) {
       res.json({ "SECURED": true })
   });
 
-  // ========================================
-  //  Lists Routes
-  // ========================================
-  app.use('/list', jwtCheck); // Protected
-  app.get('/list', function(req, res) { // Return all lists
-
-      List.find({}, function(err, lists) {
-        if (err) throw err;
-        res.json(lists);
-      });
-
-  });
-
-  app.post('/list', function(req, res) { // Create a list
-    var newList = List(req.body);
-
-    newList.save(function(err) {
-      if (err) throw err;
-    });
-
-  });
-
-  app.get('/list/:id', function(req, res) { // Return a signle list
-
-    List.find({ '_id': req.params.id }, function(err, list) {
-      if (err) throw err;
-
-      res.send(list);
-    });
-
-  });
 
   // ========================================
   //  Items Routes
