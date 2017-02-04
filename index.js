@@ -25,7 +25,7 @@ app.use(morgan('combined'));
 mongoose.connect(config.db_url);
 
 // Routes
-require('./routes.js')(app);
+require('./routes/routes.js')(app);
 
 // Main
 app.listen(port);
