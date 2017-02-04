@@ -1,5 +1,4 @@
 const jwt = require('express-jwt');
-const config = require('../config/config.js');
 
 const defaultRoutes = require('./default');
 const healthCheckRoutes = require('./healthCheck');
@@ -8,8 +7,8 @@ const itemRoutes = require('./items');
 
 // jwt auth config
 const jwtCheck = jwt({
-  secret: new Buffer(config.jwt.secret, 'base64'),
-  audience: config.jwt.audience,
+  secret: new Buffer(process.env.jwtsecret || '', 'base64'),
+  audience: process.env.jwtaudience || '',
 });
 
 module.exports = (app) => {

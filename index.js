@@ -5,10 +5,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 
-// Configs
-const config = require('./config/config.js');
-
-const port = process.env.PORT || config.port;
+const port = process.env.PORT || 8080;
 const corsOptions = {
   origin: '*',
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -22,7 +19,7 @@ app.use(cors(corsOptions));
 app.use(morgan('combined'));
 
 // DB
-mongoose.connect(config.db_url);
+mongoose.connect('mongodb://localhost:27017/sgl');
 
 // Routes
 require('./routes/routes.js')(app);
