@@ -19,6 +19,19 @@ npm start
 
 Shut it down manually with Ctrl-C.
 
+## Swagger
+API is documented using swagger. http://localhost:8080/swagger
+
+## API Endpoints
+
+### /health
+- GET - Returns true is application is running. 
+
+### /list
+- GET - Return all lists
+- POST - Create or upsert a list
+
+
 ## Contributing
 
 Fork -> Clone -> Branch -> {CODE} -> Pull Request
@@ -26,9 +39,6 @@ Fork -> Clone -> Branch -> {CODE} -> Pull Request
 All pull requests require passing unit tests via travis and a manual review. 
 
 [Contribution guidelines for this project](CONTRIBUTING.md)
-
-## Swagger
-API is documented using swagger. http://localhost:8080/swagger
 
 ## LICENSE
 Copyright 2017 Russell Perkins
