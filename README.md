@@ -19,10 +19,9 @@ npm start
 
 Shut it down manually with Ctrl-C.
 
-## Swagger
-API is documented using swagger. http://localhost:8080/swagger
-
 ## API Endpoints
+
+**Swagger:** API is documented using swagger. http://localhost:8080/swagger
 
 ### /health
 - GET - Returns true is application is running. 
