@@ -27,6 +27,9 @@ All pull requests require passing unit tests via travis and a manual review.
 
 [Contribution guidelines for this project](CONTRIBUTING.md)
 
+## Swagger
+API is documented using swagger. http://localhost:8080/swagger
+
 ## LICENSE
 Copyright 2017 Russell Perkins
 

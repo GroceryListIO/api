@@ -1,0 +1,61 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "SGL API"
+    },
+    "paths": {
+        "/health": {
+            "get": {
+                "tags": [
+                    "Defaults"
+                ],
+                "description": "Returns the servers health status.",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/list": {
+            "get": {
+                "tags": [
+                    "Lists"
+                ],
+                "description": "Returns all lists.",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "post": {
+                "description": "Create or upsert a list.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "name of list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "description",
+                        "in": "formData",
+                        "description": "short description",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Lists"
+                ]
+            }
+        }
+    }
+}
