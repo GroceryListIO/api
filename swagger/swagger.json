@@ -23,121 +23,38 @@
                 "tags": [
                     "Lists"
                 ],
-                "description": "Returns all lists",
+                "description": "Returns all lists.",
                 "responses": {
                     "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/list"
-                            }
-                        }
+                        "description": "OK"
                     }
                 }
             },
             "post": {
+                "description": "Create or upsert a list.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "name of list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "description",
+                        "in": "formData",
+                        "description": "short description",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
                 "tags": [
                     "Lists"
-                ],
-                "description": "Create a list",
-                "parameters": [
-                    {
-                        "name": "name",
-                        "in": "body",
-                        "description": "Name the list",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/list"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        },
-        "/item": {
-            "get": {
-                "tags": [
-                    "Items"
-                ],
-                "description": "Returns all lists",
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "type": "array",
-                            "items": {
-                                "$ref": "#/definitions/item"
-                            }
-                        }
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "Items"
-                ],
-                "description": "Create a item",
-                "parameters": [
-                    {
-                        "name": "name",
-                        "in": "body",
-                        "description": "Name the list",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/item"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    }
-                }
-            }
-        }
-    },
-    "definitions": {
-        "list": {
-            "type": "object",
-            "required": [
-                "_id",
-                "name"
-            ],
-            "properties": {
-                "_id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                }
-            }
-        },
-        "item": {
-            "type": "object",
-            "required": [
-                "_id",
-                "name"
-            ],
-            "properties": {
-                "_id": {
-                    "type": "integer",
-                    "format": "int64"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "description": {
-                    "type": "string"
-                }
+                ]
             }
         }
     }
