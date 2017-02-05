@@ -17,7 +17,7 @@ router.post('/list', (req, res) => {
 
   newList.save((err) => {
     if (err) throw err;
-    res.status(200);
+    res.send(newList);
   });
 });
 
