@@ -31,10 +31,4 @@ require('./routes/routes.js')(app);
 
 // Main
 app.listen(port);
-console.log('%s mode', mode);
-console.log('Server started at http://localhost:%s', port);
-if (mode === 'Devlopment') {
-  console.log('Swagger url http://localhost:%s/swagger', port);
-}
-
 module.exports = app;
