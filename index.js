@@ -17,7 +17,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
-app.use(morgan('combined'));
+app.use(morgan('dev'));
 if (mode === 'Devlopment') {
   app.use('/swagger', express.static('swagger'));
 }
@@ -31,8 +31,4 @@ require('./routes/routes.js')(app);
 
 // Main
 app.listen(port);
-console.log('%s mode', mode);
-console.log('Server started at http://localhost:%s', port);
-if (mode === 'Devlopment') {
-  console.log('Swagger url http://localhost:%s/swagger', port);
-}
+module.exports = app;
