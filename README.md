@@ -23,6 +23,7 @@ npm start
 Shut it down manually with Ctrl-C.
 
 ## Configuration
+
 The configuration file is located in /config/config.js
 - PORT
   - Port the api will listen on.
@@ -67,6 +68,7 @@ All pull requests require passing unit tests via travis and a manual review.
 [Contribution guidelines for this project](CONTRIBUTING.md)
 
 ## LICENSE
+
 Copyright 2017 Russell Perkins
 
 Licensed under the Attribution-NonCommercial-NoDerivs 3.0 (the "License");
