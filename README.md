@@ -5,14 +5,14 @@
 [![Dev Dependencies Status](https://david-dm.org/SmartGroceryList/api/dev-status.svg)](https://david-dm.org/SmartGroceryList/api)
 
 - [Table of Contents](#)
-	- [Getting Started](getting-started)
-	- [Configuration](configuration)
-	- [API Endpoints](api-endpoints)
-		- [/health](health)
-		- [/lists](lists)
-		- [/lists/{id}](listsid)
-	- [Contributing](contributing)
-	- [LICENSE](license)
+	- [Getting Started](#getting-started)
+	- [Configuration](#configuration)
+	- [API Endpoints](#api-endpoints)
+		- [/health](#health)
+		- [/lists](#lists)
+		- [/lists/{id}](#listsid)
+	- [Contributing](#contributing)
+	- [LICENSE](#license)
 
 ## Getting Started
 
