@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/SmartGroceryList/api.svg?branch=master)](https://travis-ci.org/SmartGroceryList/api)
 [![Dependencies Status](https://david-dm.org/SmartGroceryList/api.svg)](https://david-dm.org/SmartGroceryList/api)
-[![Dev Dependencies Status](https://david-dm.org/SmartGroceryList/api/dev-status.svg)](https://david-dm.org/SmartGroceryList/api)
+[![Dev Dependencies Status](https://david-dm.org/SmartGroceryList/api/dev-status.svg)](https://david-dm.org/SmartGroceryList/api?type=dev)
 
 - [Table of Contents](#)
 	- [Getting Started](#getting-started)
