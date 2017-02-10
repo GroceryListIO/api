@@ -31,7 +31,7 @@ router.delete('/lists/:id', (req, res) => {
 
 // Return a signle list
 router.get('/lists/:id', (req, res) => {
-  List.find({ _id: req.params.id }, (err, list) => {
+  List.findOne({ _id: req.params.id }, (err, list) => {
     if (err) throw err;
     res.send(list);
   });
