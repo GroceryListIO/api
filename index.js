@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 
 // Environment specific setup
-if (config.env === 'Devlopment') {
+if (config.env === 'Development') {
   app.use(morgan('dev'));
   app.use('/swagger', express.static('swagger'));
 } else if (config.env === 'Production') {
