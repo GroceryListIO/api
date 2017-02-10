@@ -4,7 +4,7 @@ const List = require('../models/list');
 const router = express.Router();
 
 // Return all lists
-router.get('/list', (req, res) => {
+router.get('/lists', (req, res) => {
   List.find({}, (err, lists) => {
     if (err) throw err;
     res.json(lists);
@@ -12,7 +12,7 @@ router.get('/list', (req, res) => {
 });
 
 // Create a list
-router.post('/list', (req, res) => {
+router.post('/lists', (req, res) => {
   const newList = List(req.body);
 
   newList.save((err) => {
@@ -21,8 +21,16 @@ router.post('/list', (req, res) => {
   });
 });
 
+// Delete a list
+router.delete('/lists/:id', (req, res) => {
+  List.findOneAndRemove({ _id: req.params.id }, (err) => {
+    if (err) throw err;
+    res.send();
+  });
+});
+
 // Return a signle list
-router.get('/list/:id', (req, res) => {
+router.get('/lists/:id', (req, res) => {
   List.find({ _id: req.params.id }, (err, list) => {
     if (err) throw err;
     res.send(list);

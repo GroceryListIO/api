@@ -18,7 +18,7 @@
                 }
             }
         },
-        "/list": {
+        "/lists": {
             "get": {
                 "tags": [
                     "Lists"
@@ -44,6 +44,48 @@
                         "name": "description",
                         "in": "formData",
                         "description": "short description",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Lists"
+                ]
+            }
+        },
+        "/lists/{id}": {
+            "get": {
+                "description": "Return a signle list.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of list",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Lists"
+                ]
+            },
+            "delete": {
+                "description": "Delete a list.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of list",
+                        "required": true,
                         "type": "string"
                     }
                 ],

@@ -1,11 +1,11 @@
 # Smart Grocery List API
 
 [![Build Status](https://travis-ci.org/SmartGroceryList/api.svg?branch=master)](https://travis-ci.org/SmartGroceryList/api)
-[![Build Status](https://david-dm.org/SmartGroceryList/api.svg)](https://david-dm.org/SmartGroceryList/api)
+[![Dependencies Status](https://david-dm.org/SmartGroceryList/api.svg)](https://david-dm.org/SmartGroceryList/api)
+[![Dev Dependencies Status](https://david-dm.org/SmartGroceryList/api/dev-status.svg)](https://david-dm.org/SmartGroceryList/api)
+
 
 ## Getting Started
-
-Environment variables jwtsecret and jwtaudience must be set for authentication to work.
 
 Install the npm packages described in the package.json and verify that it works:
 
@@ -13,33 +13,62 @@ Install the npm packages described in the package.json and verify that it works:
 # Install the dependencies
 npm install
 
+# Test
+npm test
+
 # Run
 npm start
 ```
 
 Shut it down manually with Ctrl-C.
 
+## Configuration
+
+The configuration file is located in /config/config.js
+- PORT
+  - Port the api will listen on.
+  - Default: '8080';
+- ENV
+  - Environment the application is running in.
+  - Default: 'Development'
+  - Options: 'Development', 'Test', 'Production'
+- DB
+  - Database connection string.
+  - Default: 'mongodb://localhost:27017/sgl'
+- JWTSECRET
+  - The JWT Secret for authentication.
+  - Default: ''
+- JWTAUDIENCE
+  - The JWT Audience for authentication.
+  - Default: ''
+
+
 ## API Endpoints
 
 **Swagger:** API is documented using swagger. http://localhost:8080/swagger
 
 ### /health
-- GET - Returns true is application is running. 
+- GET - Returns true is application is running.
 
-### /list
+### /lists
 - GET - Return all lists
-- POST - Create or upsert a list
+- POST - Create or update a list
+
+### /lists/{id}
+- GET - Return a single list
+- DELETE - Delete a list
 
 
 ## Contributing
 
 Fork -> Clone -> Branch -> {CODE} -> Pull Request
 
-All pull requests require passing unit tests via travis and a manual review. 
+All pull requests require passing unit tests via travis and a manual review.
 
 [Contribution guidelines for this project](CONTRIBUTING.md)
 
 ## LICENSE
+
 Copyright 2017 Russell Perkins
 
 Licensed under the Attribution-NonCommercial-NoDerivs 3.0 (the "License");
