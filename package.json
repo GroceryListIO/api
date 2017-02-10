@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "./node_modules/.bin/eslint index.js routes models"
+    "test": "eslint index.js routes models & mocha"
   },
   "author": "russell perkins",
   "license": "CC-BY-NC-4.0",
@@ -21,6 +21,8 @@
   "devDependencies": {
     "eslint": "^3.14.1",
     "eslint-config-airbnb-base": "^11.0.1",
-    "eslint-plugin-import": "^2.2.0"
+    "eslint-plugin-import": "^2.2.0",
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
   }
 }
