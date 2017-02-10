@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "eslint index.js routes models & mocha"
+    "test": "eslint index.js routes models config & mocha"
   },
   "author": "russell perkins",
   "license": "CC-BY-NC-4.0",

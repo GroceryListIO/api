@@ -1,3 +1,4 @@
+process.env.MODE = 'Test';
 const request = require('supertest');
 const app = require('../index.js');
 
