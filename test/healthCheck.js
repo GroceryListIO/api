@@ -2,7 +2,7 @@ process.env.MODE = 'Test';
 const request = require('supertest');
 const app = require('../index.js');
 
-describe('Health Check', () => {
+describe('GET /health - Health Check', () => {
   it('Status code 200', (done) => {
     request(app).get('/health').expect(200, done)
   });
