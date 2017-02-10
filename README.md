@@ -42,11 +42,11 @@ All pull requests require passing unit tests via travis and a manual review.
 ## LICENSE
 Copyright 2017 Russell Perkins
 
-Licensed under the Attribution-NonCommercial 4.0 (the "License");
+Licensed under the Attribution-NonCommercial-NoDerivs 3.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    https://creativecommons.org/licenses/by-nc/4.0/
+    https://creativecommons.org/licenses/by-nc-nd/3.0/
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
