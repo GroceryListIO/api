@@ -24,18 +24,22 @@ Shut it down manually with Ctrl-C.
 **Swagger:** API is documented using swagger. http://localhost:8080/swagger
 
 ### /health
-- GET - Returns true is application is running. 
+- GET - Returns true is application is running.
 
 ### /list
 - GET - Return all lists
 - POST - Create or upsert a list
+
+### /list/{id}
+- GET - Return a single list
+- DELETE - Delete a list
 
 
 ## Contributing
 
 Fork -> Clone -> Branch -> {CODE} -> Pull Request
 
-All pull requests require passing unit tests via travis and a manual review. 
+All pull requests require passing unit tests via travis and a manual review.
 
 [Contribution guidelines for this project](CONTRIBUTING.md)
 
