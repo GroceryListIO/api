@@ -3,7 +3,7 @@ const request = require('supertest');
 const app = require('../index.js');
 
 describe('Health Check', () => {
-  
+
   it('GET /health - Get Health Check', (done) => {
     request(app)
     .get('/health')
