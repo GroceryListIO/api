@@ -5,7 +5,7 @@
 [![Dependencies Status](https://david-dm.org/SmartGroceryList/api.svg)](https://david-dm.org/SmartGroceryList/api)
 [![Dev Dependencies Status](https://david-dm.org/SmartGroceryList/api/dev-status.svg)](https://david-dm.org/SmartGroceryList/api?type=dev)
 
-- [Table of Contents](#)
+- Table of Contents
 	- [Getting Started](#getting-started)
 	- [Configuration](#configuration)
 	- [API Endpoints](#api-endpoints)
