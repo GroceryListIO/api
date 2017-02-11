@@ -11,7 +11,7 @@
     "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && node ./node_modules/coveralls/bin/coveralls.js < coverage/lcov.info"
   },
   "author": "russell perkins",
-  "license": "CC-BY-NC-4.0",
+  "license": "CC-BY-NC-ND-3.0",
   "dependencies": {
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
