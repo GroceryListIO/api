@@ -7,4 +7,4 @@ services:
 - mongodb
 
 after_success:
-  - npm run coverall
+  - npm run coveralls
