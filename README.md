@@ -18,7 +18,6 @@
 	- [LICENSE](#license)
 
 
-https://github.com/SmartGroceryList/api#listslistid
 ## Getting Started
 
 Install the npm packages described in the package.json and verify that it works:
