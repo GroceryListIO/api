@@ -101,9 +101,6 @@
         },
         "/lists/{listID}/items": {
             "get": {
-                "tags": [
-                    "Items"
-                ],
                 "description": "Get all items in a list",
                 "parameters": [
                     {
@@ -118,7 +115,10 @@
                     "200": {
                         "description": "OK"
                     }
-                }
+                },
+                "tags": [
+                    "Items"
+                ]
             },
             "post": {
                 "description": "Create an item.",
@@ -134,6 +134,62 @@
                         "name": "name",
                         "in": "formData",
                         "description": "name of list",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Items"
+                ]
+            }
+        },
+        "/lists/{listID}/items/{itemID}": {
+            "get": {
+                "description": "Get a single item",
+                "parameters": [
+                    {
+                        "name": "listID",
+                        "in": "path",
+                        "description": "id of list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "itemID",
+                        "in": "path",
+                        "description": "id of list",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Items"
+                ]
+            },
+            "delete": {
+                "description": "Delete an item",
+                "parameters": [
+                    {
+                        "name": "listID",
+                        "in": "path",
+                        "description": "id of list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "itemID",
+                        "in": "path",
+                        "description": "id of list",
                         "required": true,
                         "type": "string"
                     }

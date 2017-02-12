@@ -23,4 +23,20 @@ router.post('/lists/:listID/items', (req, res) => {
   });
 });
 
+// Return a signle item
+router.get('/lists/:listID/items/:itemID', (req, res) => {
+  Item.findOne({ _id: req.params.itemID }, (err, list) => {
+    if (err) throw err;
+    res.send(list);
+  });
+});
+
+// Delete an item
+router.delete('/lists/:listID/items/:itemID', (req, res) => {
+  Item.findOneAndRemove({ _id: req.params.itemID }, (err) => {
+    if (err) throw err;
+    res.send();
+  });
+});
+
 module.exports = router;
