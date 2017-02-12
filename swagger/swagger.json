@@ -31,7 +31,7 @@
                 }
             },
             "post": {
-                "description": "Create or upsert a list.",
+                "description": "Create a list.",
                 "parameters": [
                     {
                         "name": "name",
@@ -57,12 +57,12 @@
                 ]
             }
         },
-        "/lists/{id}": {
+        "/lists/{listID}": {
             "get": {
                 "description": "Return a signle list.",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "listID",
                         "in": "path",
                         "description": "id of list",
                         "required": true,
@@ -82,7 +82,7 @@
                 "description": "Delete a list.",
                 "parameters": [
                     {
-                        "name": "id",
+                        "name": "listID",
                         "in": "path",
                         "description": "id of list",
                         "required": true,
@@ -96,6 +96,111 @@
                 },
                 "tags": [
                     "Lists"
+                ]
+            }
+        },
+        "/lists/{listID}/items": {
+            "get": {
+                "description": "Get all items in a list",
+                "parameters": [
+                    {
+                        "name": "listID",
+                        "in": "path",
+                        "description": "id of list",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Items"
+                ]
+            },
+            "post": {
+                "description": "Create an item.",
+                "parameters": [
+                    {
+                        "name": "listID",
+                        "in": "path",
+                        "description": "id of list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "in": "formData",
+                        "description": "name of list",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Items"
+                ]
+            }
+        },
+        "/lists/{listID}/items/{itemID}": {
+            "get": {
+                "description": "Get a single item",
+                "parameters": [
+                    {
+                        "name": "listID",
+                        "in": "path",
+                        "description": "id of list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "itemID",
+                        "in": "path",
+                        "description": "id of list",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Items"
+                ]
+            },
+            "delete": {
+                "description": "Delete an item",
+                "parameters": [
+                    {
+                        "name": "listID",
+                        "in": "path",
+                        "description": "id of list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "itemID",
+                        "in": "path",
+                        "description": "id of list",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Items"
                 ]
             }
         }

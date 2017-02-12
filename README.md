@@ -64,9 +64,17 @@ The configuration file is located in /config/config.js
 - GET - Return all lists
 - POST - Create or update a list
 
-### /lists/{id}
+### /lists/{listID}
 - GET - Return a single list
 - DELETE - Delete a list
+
+### /lists/{listID}/items
+- GET - Return all items
+- DELETE - Delete an item
+
+### /lists/{listID}/items/{itemID}
+- GET - Return a single item
+- DELETE - Delete an item
 
 
 ## Contributing

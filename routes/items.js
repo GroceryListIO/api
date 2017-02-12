@@ -1,15 +1,42 @@
 const express = require('express');
+const Item = require('../models/item');
 
 const router = express.Router();
 
-// Return all items on a list
-router.get('/items/:listId', (req, res) => {
-  res.send('TODO: return all items on a list');
+// Return all items in a list
+router.get('/lists/:listID/items', (req, res) => {
+  Item.find({ list: req.params.listID }, (err, items) => {
+    if (err) throw err;
+    res.json(items);
+  });
 });
 
-// Return a single item
-router.get('/items/:listId/:id', (req, res) => {
-  res.send('TODO: return a single item');
+// Create an item
+router.post('/lists/:listID/items', (req, res) => {
+  const item = req.body;
+  item.list = req.params.listID;
+  const newItem = Item(item);
+
+  newItem.save((err) => {
+    if (err) throw err;
+    res.send(newItem);
+  });
+});
+
+// Return a signle item
+router.get('/lists/:listID/items/:itemID', (req, res) => {
+  Item.findOne({ _id: req.params.itemID }, (err, list) => {
+    if (err) throw err;
+    res.send(list);
+  });
+});
+
+// Delete an item
+router.delete('/lists/:listID/items/:itemID', (req, res) => {
+  Item.findOneAndRemove({ _id: req.params.itemID }, (err) => {
+    if (err) throw err;
+    res.send();
+  });
 });
 
 module.exports = router;
