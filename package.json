@@ -7,8 +7,8 @@
   "scripts": {
     "start": "node index.js",
     "test": "eslint index.js routes models config & mocha",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly",
-    "coveralls": "node ./node_modules/istanbul/index.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && node ./node_modules/coveralls/bin/coveralls.js < coverage/lcov.info"
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec",
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && node ./node_modules/coveralls/bin/coveralls.js < coverage/lcov.info"
   },
   "author": "russell perkins",
   "license": "CC-BY-NC-ND-3.0",
