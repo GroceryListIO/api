@@ -11,10 +11,14 @@
 	- [API Endpoints](#api-endpoints)
 		- [/health](#health)
 		- [/lists](#lists)
-		- [/lists/{id}](#listsid)
+		- [/lists/{listID}](#listslistid)
+		- [/lists/{listID}/items](#listslistiditems)
+		- [/lists/{listID}/items/{itemsID}](#listslistiditemsitemid)
 	- [Contributing](#contributing)
 	- [LICENSE](#license)
 
+
+https://github.com/SmartGroceryList/api#listslistid
 ## Getting Started
 
 Install the npm packages described in the package.json and verify that it works:
