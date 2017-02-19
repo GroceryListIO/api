@@ -8,7 +8,7 @@ let testList = {};
 describe('Lists', () => {
   async.series([
 
-    function createAList(asyncDone) {
+    function createList(asyncDone) {
       it('POST /lists - Create A List', (done) => {
         request(app)
         .post('/lists')
