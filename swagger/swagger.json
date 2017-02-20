@@ -4,6 +4,13 @@
         "version": "1.0.0",
         "title": "SGL API"
     },
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
     "paths": {
         "/health": {
             "get": {
@@ -85,6 +92,11 @@
                     "Lists"
                 ],
                 "description": "Returns all lists.",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK"
