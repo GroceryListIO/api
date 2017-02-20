@@ -142,6 +142,11 @@
                         "type": "string"
                     }
                 ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -160,6 +165,11 @@
                         "description": "id of list",
                         "required": true,
                         "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
                     }
                 ],
                 "responses": {
@@ -182,6 +192,11 @@
                         "description": "id of list",
                         "required": true,
                         "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
                     }
                 ],
                 "responses": {
@@ -209,6 +224,11 @@
                         "description": "name of list",
                         "required": true,
                         "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
                     }
                 ],
                 "responses": {
@@ -240,6 +260,11 @@
                         "type": "string"
                     }
                 ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -265,6 +290,11 @@
                         "description": "id of item",
                         "required": true,
                         "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
                     }
                 ],
                 "responses": {
