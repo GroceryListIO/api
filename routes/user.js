@@ -16,10 +16,7 @@ function generateToken(user) {
 function setUserInfo(request) {
   return {
     _id: request._id,
-    firstName: request.profile.firstName,
-    lastName: request.profile.lastName,
     email: request.email,
-    role: request.role,
   };
 }
 
@@ -37,16 +34,11 @@ router.post('/login', (req, res) => {
 router.post('/register', (req, res, next) => {
   // Check for registration errors
   const email = req.body.email;
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
   const password = req.body.password;
 
   // Validate Fields
   if (!email) {
     return res.status(422).send({ error: 'You must enter an email address.' });
-  }
-  if (!firstName || !lastName) {
-    return res.status(422).send({ error: 'You must enter your full name.' });
   }
   if (!password) {
     return res.status(422).send({ error: 'You must enter a password.' });
@@ -64,7 +56,6 @@ router.post('/register', (req, res, next) => {
     const user = new User({
       email,
       password,
-      profile: { firstName, lastName },
     });
 
     user.save((error, newUser) => {

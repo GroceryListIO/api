@@ -12,14 +12,6 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  profile: {
-    firstName: {
-      type: String,
-    },
-    lastName: {
-      type: String,
-    },
-  },
   resetPasswordToken: {
     type: String,
   },
