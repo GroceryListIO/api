@@ -1,9 +1,6 @@
-const express = require('express');
 const jwt = require('jsonwebtoken');
 const config = require('../config/config.js');
 const User = require('../models/user');
-
-const router = express.Router();
 
 function generateToken(user) {
   return jwt.sign(user, config.jwtsecret, {
@@ -21,17 +18,17 @@ function setUserInfo(request) {
 }
 
 // Login Routes
-router.post('/login', (req, res) => {
-  const userInfo = setUserInfo(req.body);
+exports.login = (req, res) => {
+  const userInfo = setUserInfo(req.user);
 
   res.status(200).json({
     token: `JWT ${generateToken(userInfo)}`,
     user: userInfo,
   });
-});
+};
 
 // Registration Route
-router.post('/register', (req, res, next) => {
+exports.register = (req, res, next) => {
   // Check for registration errors
   const email = req.body.email;
   const password = req.body.password;
@@ -74,6 +71,25 @@ router.post('/register', (req, res, next) => {
     return false;
   });
   return false;
-});
+};
 
-module.exports = router;
+// authorization check
+exports.ownerCheck = function (ownerID) {
+  return function (req, res, next) {
+    const user = req.user;
+
+    User.findById(user._id, (err, foundUser) => {
+      if (err) {
+        res.status(401).json({ error: 'User not found.' });
+        return next(err);
+      }
+
+      // Is this user the same as the owner
+      if (foundUser._id === ownerID) {
+        return next();
+      }
+
+      return res.status(401).json({ error: 'You are not authorized to view this content.' });
+    });
+  };
+};

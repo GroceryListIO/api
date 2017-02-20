@@ -29,7 +29,7 @@ if (config.env === 'Development') {
 mongoose.connect(config.db);
 
 // Routes
-require('./routes/routes.js')(app);
+require('./router.js')(app);
 
 // Main
 app.listen(config.port);
