@@ -18,6 +18,67 @@
                 }
             }
         },
+        "/login": {
+            "post": {
+                "description": "Get a JWT token from login credentials",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "emaill address",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "password",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Auth"
+                ]
+            }
+        },
+        "/register": {
+            "post": {
+                "description": "Create a new user",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "email address",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "password",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "422": {
+                        "description": "Missing required fields or existing user"
+                    }
+                },
+                "tags": [
+                    "Auth"
+                ]
+            }
+        },
         "/lists": {
             "get": {
                 "tags": [
@@ -162,7 +223,7 @@
                     {
                         "name": "itemID",
                         "in": "path",
-                        "description": "id of list",
+                        "description": "id of item",
                         "required": true,
                         "type": "string"
                     }
@@ -189,7 +250,7 @@
                     {
                         "name": "itemID",
                         "in": "path",
-                        "description": "id of list",
+                        "description": "id of item",
                         "required": true,
                         "type": "string"
                     }

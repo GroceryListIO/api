@@ -6,7 +6,7 @@ const User = require('../models/user');
 const router = express.Router();
 
 function generateToken(user) {
-  return jwt.sign(user, config.secret, {
+  return jwt.sign(user, config.jwtsecret, {
     expiresIn: 10080, // in seconds
   });
 }
@@ -22,7 +22,7 @@ function setUserInfo(request) {
 
 // Login Routes
 router.post('/login', (req, res) => {
-  const userInfo = setUserInfo(req.user);
+  const userInfo = setUserInfo(req.body);
 
   res.status(200).json({
     token: `JWT ${generateToken(userInfo)}`,

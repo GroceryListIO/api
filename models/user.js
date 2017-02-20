@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema({
 });
 
 // Pre-save of user to database, hash password if password is modified or new
-userSchema.pre('save', (next) => {
+userSchema.pre('save', function (next) {
   const user = this;
   const SALT_FACTOR = 5;
 
@@ -30,8 +30,8 @@ userSchema.pre('save', (next) => {
   bcrypt.genSalt(SALT_FACTOR, (err, salt) => {
     if (err) return next(err);
 
-    bcrypt.hash(user.password, salt, null, (errHash, hash) => {
-      if (errHash) return next(errHash);
+    bcrypt.hash(user.password, salt, (error, hash) => {
+      if (error) return next(error);
       user.password = hash;
       return next();
     });
