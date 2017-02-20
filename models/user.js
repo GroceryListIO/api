@@ -26,11 +26,7 @@ const userSchema = mongoose.Schema({
   resetPasswordExpires: {
     type: Date,
   },
-},
-  {
-    timestamps: true,
-  },
-);
+});
 
 // Pre-save of user to database, hash password if password is modified or new
 userSchema.pre('save', (next) => {
