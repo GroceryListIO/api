@@ -73,7 +73,7 @@ exports.register = (req, res, next) => {
   return false;
 };
 
-// authorization check
+/* authorization check TODO
 exports.ownerCheck = function (ownerID) {
   return function (req, res, next) {
     const user = req.user;
@@ -93,3 +93,4 @@ exports.ownerCheck = function (ownerID) {
     });
   };
 };
+*/

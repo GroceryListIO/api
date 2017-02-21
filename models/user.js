@@ -21,7 +21,7 @@ const userSchema = mongoose.Schema({
 });
 
 // Pre-save of user to database, hash password if password is modified or new
-userSchema.pre('save', function (next) {
+userSchema.pre('save', function preSaveUserSchema(next) {
   const user = this;
   const SALT_FACTOR = 5;
 
@@ -41,7 +41,7 @@ userSchema.pre('save', function (next) {
 });
 
 // Method to compare password for login
-userSchema.methods.comparePassword = function (candidatePassword, cb) {
+userSchema.methods.comparePassword = function comparePassword(candidatePassword, cb) {
   bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
     if (err) { return cb(err); }
 
