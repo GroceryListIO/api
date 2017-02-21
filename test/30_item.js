@@ -11,7 +11,7 @@ const testEmail = 'testuser' + Math.floor((Math.random() * 9999) + 1) + '@exampl
 describe('Items', () => {
   async.series([
 
-    function createUser(asyncDone) {
+    function createUser(next) {
       it('Create A User To Test With', (done) => {
         request(app)
         .post('/register')
@@ -21,26 +21,24 @@ describe('Items', () => {
           done();
         });
       })
-      asyncDone();
+      next();
     },
 
-    function createList(asyncDone) {
-      it('POST /lists - Create A List', (done) => {
+    function createList(next) {
+      it('Create A List To Test With', (done) => {
         request(app)
         .post('/lists')
         .set('Authorization', testUser.token)
         .send({ name: 'Test POST', description: 'Unit Test' })
-        .expect('Content-Type', 'application/json; charset=utf-8')
-        .expect(200)
         .end( (err, res) => {
           testList = res.body;
           done();
         });
       })
-      asyncDone();
+      next();
     },
 
-    function createAnItem(asyncDone) {
+    function createAnItem(next) {
       it('POST /lists/:listID/items - Create A Test Item', (done) => {
         request(app)
         .post('/lists/' + testList + '/items')
@@ -53,10 +51,10 @@ describe('Items', () => {
           done();
         });
       })
-      asyncDone();
+      next();
     },
 
-    function getAllItems(asyncDone) {
+    function getAllItems(next) {
       it('GET /lists/:listID/items - Get All Items', (done) => {
         request(app)
         .get('/lists/' + testList._id + '/items/')
@@ -64,27 +62,38 @@ describe('Items', () => {
         .expect('Content-Type', 'application/json; charset=utf-8')
         .expect(200, done);
       })
-      asyncDone();
+      next();
     },
 
-    function deleteItem(asyncDone) {
+    function getItem(next) {
+      it('GET /lists/:listID/items/:itemID - Get A Single Item', (done) => {
+        request(app)
+        .get('/lists/' + testList._id + '/items/' + testItem._id)
+        .set('Authorization', testUser.token)
+        .expect('Content-Type', 'application/json; charset=utf-8')
+        .expect(200, done);
+      })
+      next();
+    },
+
+    function deleteItem(next) {
       it('DELETE /lists/:listID/items/:itemID - Delette An Item', (done) => {
         request(app)
         .del('/lists/' + testList._id + '/items/' + testItem._id)
         .set('Authorization', testUser.token)
         .expect(200, done);
       })
-      asyncDone();
+      next();
     },
 
-    function deleteList(asyncDone) {
+    function deleteList(next) {
       it('DELETE /lists/:listID - Clean Up Test List', (done) => {
         request(app)
         .del('/lists/' + testList._id)
         .set('Authorization', testUser.token)
         .expect(200, done);
       })
-      asyncDone();
+      next();
     },
 
   ]);

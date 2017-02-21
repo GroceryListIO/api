@@ -5,9 +5,7 @@ require('./config/passport');
 const authController = require('./controllers/authentication');
 const listsController = require('./controllers/lists');
 const itemController = require('./controllers/items');
-
-// Routers. Simpler route style endpoints.
-const healthCheckRoutes = require('./routes/healthCheck');
+const healthCheckController = require('./controllers/healthCheck');
 
 // Middleware to require login/auth
 const requireAuth = passport.authenticate('jwt', { session: false });
@@ -16,7 +14,7 @@ const requireLogin = passport.authenticate('local', { session: false });
 // Attach Routes
 module.exports = (app) => {
   // Defaults
-  app.use(healthCheckRoutes);
+  app.get('/health', healthCheckController.healthCheck);
 
   // Auth / User
   app.post('/register', authController.register);
