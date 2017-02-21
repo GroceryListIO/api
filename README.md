@@ -10,6 +10,8 @@
 	- [Configuration](#configuration)
 	- [API Endpoints](#api-endpoints)
 		- [/health](#health)
+		- [/login](#login)
+		- [/register](#register)
 		- [/lists](#lists)
 		- [/lists/{listID}](#listslistid)
 		- [/lists/{listID}/items](#listslistiditems)
@@ -50,11 +52,7 @@ The configuration file is located in /config/config.js
   - Default: 'mongodb://localhost:27017/sgl'
 - JWTSECRET
   - The JWT Secret for authentication.
-  - Default: ''
-- JWTAUDIENCE
-  - The JWT Audience for authentication.
-  - Default: ''
-
+  - Default: 'sgltestingsecret'
 
 ## API Endpoints
 
@@ -62,6 +60,12 @@ The configuration file is located in /config/config.js
 
 ### /health
 - GET - Returns true is application is running.
+
+### /login
+- POST - Get a JWT token from login credentials
+
+### /register
+- POST - Create a new user
 
 ### /lists
 - GET - Return all lists
