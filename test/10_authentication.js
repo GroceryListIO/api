@@ -9,7 +9,7 @@ const testEmail = 'testuser' + Math.floor((Math.random() * 9999) + 1) + '@exampl
 describe('Authentication', () => {
   async.series([
 
-    function createUser(asyncDone) {
+    function createUser(next) {
       it('POST /register - Create A User', (done) => {
         request(app)
         .post('/register')
@@ -22,10 +22,10 @@ describe('Authentication', () => {
           done();
         });
       })
-      asyncDone();
+      next();
     },
 
-    function login(asyncDone) {
+    function login(next) {
       it('POST /login - Login As A User', (done) => {
         request(app)
         .post('/login')
@@ -33,7 +33,7 @@ describe('Authentication', () => {
         .expect('Content-Type', 'application/json; charset=utf-8')
         .expect(200, done);
       })
-      asyncDone();
+      next();
     },
 
   ]);

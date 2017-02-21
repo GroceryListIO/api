@@ -10,7 +10,7 @@ const testEmail = 'testuser' + Math.floor((Math.random() * 9999) + 1) + '@exampl
 describe('Lists', () => {
   async.series([
 
-    function createUser(asyncDone) {
+    function createUser(next) {
       it('Create A User To Test With', (done) => {
         request(app)
         .post('/register')
@@ -20,10 +20,10 @@ describe('Lists', () => {
           done();
         });
       })
-      asyncDone();
+      next();
     },
 
-    function createList(asyncDone) {
+    function createList(next) {
       it('POST /lists - Create A List', (done) => {
         request(app)
         .post('/lists')
@@ -36,10 +36,10 @@ describe('Lists', () => {
           done();
         });
       })
-      asyncDone();
+      next();
     },
 
-    function getAllLists(asyncDone) {
+    function getAllLists(next) {
       it('GET /lists - Get All Lists', (done) => {
         request(app)
         .get('/lists')
@@ -47,17 +47,17 @@ describe('Lists', () => {
         .expect('Content-Type', 'application/json; charset=utf-8')
         .expect(200, done);
       })
-      asyncDone();
+      next();
     },
 
-    function deleteList(asyncDone) {
+    function deleteList(next) {
       it('DELETE /lists/:listID - Delete A List', (done) => {
         request(app)
         .del('/lists/' + testList._id)
         .set('Authorization', testUser.token)
         .expect(200, done);
       })
-      asyncDone();
+      next();
     },
 
   ]);
