@@ -25,13 +25,11 @@ describe('Items', () => {
     },
 
     function createList(asyncDone) {
-      it('POST /lists - Create A List', (done) => {
+      it('Create A List To Test With', (done) => {
         request(app)
         .post('/lists')
         .set('Authorization', testUser.token)
         .send({ name: 'Test POST', description: 'Unit Test' })
-        .expect('Content-Type', 'application/json; charset=utf-8')
-        .expect(200)
         .end( (err, res) => {
           testList = res.body;
           done();
