@@ -5,17 +5,19 @@
 [![Dependencies Status](https://david-dm.org/SmartGroceryList/api.svg)](https://david-dm.org/SmartGroceryList/api)
 [![Dev Dependencies Status](https://david-dm.org/SmartGroceryList/api/dev-status.svg)](https://david-dm.org/SmartGroceryList/api?type=dev)
 
-- Table of Contents
-	- [Getting Started](#getting-started)
-	- [Configuration](#configuration)
-	- [API Endpoints](#api-endpoints)
-		- [/health](#health)
-		- [/lists](#lists)
-		- [/lists/{listID}](#listslistid)
-		- [/lists/{listID}/items](#listslistiditems)
-		- [/lists/{listID}/items/{itemsID}](#listslistiditemsitemid)
-	- [Contributing](#contributing)
-	- [LICENSE](#license)
+## Table of Contents
+- [Getting Started](#getting-started)
+- [Configuration](#configuration)
+- [API Endpoints](#api-endpoints)
+	- [/health](#health)
+	- [/login](#login)
+	- [/register](#register)
+	- [/lists](#lists)
+	- [/lists/{listID}](#listslistid)
+	- [/lists/{listID}/items](#listslistiditems)
+	- [/lists/{listID}/items/{itemsID}](#listslistiditemsitemid)
+- [Contributing](#contributing)
+- [LICENSE](#license)
 
 
 ## Getting Started
@@ -50,11 +52,7 @@ The configuration file is located in /config/config.js
   - Default: 'mongodb://localhost:27017/sgl'
 - JWTSECRET
   - The JWT Secret for authentication.
-  - Default: ''
-- JWTAUDIENCE
-  - The JWT Audience for authentication.
-  - Default: ''
-
+  - Default: 'sgltestingsecret'
 
 ## API Endpoints
 
@@ -62,6 +60,12 @@ The configuration file is located in /config/config.js
 
 ### /health
 - GET - Returns true is application is running.
+
+### /login
+- POST - Get a JWT token from login credentials
+
+### /register
+- POST - Create a new user
 
 ### /lists
 - GET - Return all lists
