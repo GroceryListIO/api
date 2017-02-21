@@ -10,14 +10,13 @@ describe('Authentication', () => {
   async.series([
 
     function createUser(next) {
-      it('POST /register - Create A User', (done) => {
+      it('Register User', (done) => {
         request(app)
         .post('/register')
         .send({ email: testEmail, password: 'Unit Test' })
         .expect('Content-Type', 'application/json; charset=utf-8')
         .expect(201)
         .end( (err, res) => {
-          if (err) throw err;
           testUser = res.body;
           done();
         });
@@ -25,8 +24,41 @@ describe('Authentication', () => {
       next();
     },
 
+    function createUserWithoutEmail(next) {
+      it('Register User Without Email (Expect 422)', (done) => {
+        request(app)
+        .post('/register')
+        .send({ password: 'Unit Test' })
+        .expect('Content-Type', 'application/json; charset=utf-8')
+        .expect(422, done);
+      })
+      next();
+    },
+
+    function createUserWithoutPassword(next) {
+      it('Register User Without Password (Expect 422)', (done) => {
+        request(app)
+        .post('/register')
+        .send({ email: testEmail })
+        .expect('Content-Type', 'application/json; charset=utf-8')
+        .expect(422, done);
+      })
+      next();
+    },
+
+    function userAlreadyExsists(next) {
+      it('Register User That Already Exsists (Expect 422)', (done) => {
+        request(app)
+        .post('/register')
+        .send({ email: testEmail, password: 'Unit Test' })
+        .expect('Content-Type', 'application/json; charset=utf-8')
+        .expect(422, done)
+      })
+      next();
+    },
+
     function login(next) {
-      it('POST /login - Login As A User', (done) => {
+      it('Login As A User', (done) => {
         request(app)
         .post('/login')
         .send({ email: testEmail, password: 'Unit Test' })
