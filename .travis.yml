@@ -3,12 +3,11 @@ language: node_js
 node_js:
 - "6.9.5"
 
+env:
+  - "CXX=g++-4.8",
+
 services:
 - mongodb
-
-before_install:
-- sudo apt-get update -qq
-- sudo apt-get install -qq build-essential
 
 after_success:
   - npm run coveralls
