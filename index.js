@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const bluebird = require('bluebird');
 const morgan = require('morgan');
 const config = require('./config/config.js');
 
@@ -26,10 +27,11 @@ if (config.env === 'Development') {
 }
 
 // DB
+mongoose.Promise = bluebird;
 mongoose.connect(config.db);
 
 // Routes
-require('./routes/routes.js')(app);
+require('./router.js')(app);
 
 // Main
 app.listen(config.port);

@@ -5,15 +5,31 @@ const async = require('async');
 
 let testItem = {};
 let testList = {};
+let testUser = {};
+const testEmail = 'testuser' + Math.floor((Math.random() * 9999) + 1) + '@example.org';
 
 describe('Items', () => {
   async.series([
 
+    function createUser(asyncDone) {
+      it('Create A User To Test With', (done) => {
+        request(app)
+        .post('/register')
+        .send({ email: testEmail, password: 'Unit Test' })
+        .end( (err, res) => {
+          testUser = res.body;
+          done();
+        });
+      })
+      asyncDone();
+    },
+
     function createList(asyncDone) {
-      it('POST /lists - Create A List To Test On', (done) => {
+      it('POST /lists - Create A List', (done) => {
         request(app)
         .post('/lists')
-        .send({ name: 'Item Test List', description: 'Unit test for items.' })
+        .set('Authorization', testUser.token)
+        .send({ name: 'Test POST', description: 'Unit Test' })
         .expect('Content-Type', 'application/json; charset=utf-8')
         .expect(200)
         .end( (err, res) => {
@@ -28,6 +44,7 @@ describe('Items', () => {
       it('POST /lists/:listID/items - Create A Test Item', (done) => {
         request(app)
         .post('/lists/' + testList + '/items')
+        .set('Authorization', testUser.token)
         .send({ name: 'Test Item' })
         .expect('Content-Type', 'application/json; charset=utf-8')
         .expect(200)
@@ -43,6 +60,7 @@ describe('Items', () => {
       it('GET /lists/:listID/items - Get All Items', (done) => {
         request(app)
         .get('/lists/' + testList._id + '/items/')
+        .set('Authorization', testUser.token)
         .expect('Content-Type', 'application/json; charset=utf-8')
         .expect(200, done);
       })
@@ -53,6 +71,7 @@ describe('Items', () => {
       it('DELETE /lists/:listID/items/:itemID - Delette An Item', (done) => {
         request(app)
         .del('/lists/' + testList._id + '/items/' + testItem._id)
+        .set('Authorization', testUser.token)
         .expect(200, done);
       })
       asyncDone();
@@ -62,6 +81,7 @@ describe('Items', () => {
       it('DELETE /lists/:listID - Clean Up Test List', (done) => {
         request(app)
         .del('/lists/' + testList._id)
+        .set('Authorization', testUser.token)
         .expect(200, done);
       })
       asyncDone();

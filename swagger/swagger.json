@@ -4,6 +4,13 @@
         "version": "1.0.0",
         "title": "SGL API"
     },
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
     "paths": {
         "/health": {
             "get": {
@@ -18,12 +25,78 @@
                 }
             }
         },
+        "/login": {
+            "post": {
+                "description": "Get a JWT token from login credentials",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "emaill address",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "password",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Auth"
+                ]
+            }
+        },
+        "/register": {
+            "post": {
+                "description": "Create a new user",
+                "parameters": [
+                    {
+                        "name": "email",
+                        "in": "formData",
+                        "description": "email address",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "password",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "422": {
+                        "description": "Missing required fields or existing user"
+                    }
+                },
+                "tags": [
+                    "Auth"
+                ]
+            }
+        },
         "/lists": {
             "get": {
                 "tags": [
                     "Lists"
                 ],
                 "description": "Returns all lists.",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -69,6 +142,11 @@
                         "type": "string"
                     }
                 ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -87,6 +165,11 @@
                         "description": "id of list",
                         "required": true,
                         "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
                     }
                 ],
                 "responses": {
@@ -109,6 +192,11 @@
                         "description": "id of list",
                         "required": true,
                         "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
                     }
                 ],
                 "responses": {
@@ -138,6 +226,11 @@
                         "type": "string"
                     }
                 ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK"
@@ -162,9 +255,14 @@
                     {
                         "name": "itemID",
                         "in": "path",
-                        "description": "id of list",
+                        "description": "id of item",
                         "required": true,
                         "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
                     }
                 ],
                 "responses": {
@@ -189,9 +287,14 @@
                     {
                         "name": "itemID",
                         "in": "path",
-                        "description": "id of list",
+                        "description": "id of item",
                         "required": true,
                         "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
                     }
                 ],
                 "responses": {
