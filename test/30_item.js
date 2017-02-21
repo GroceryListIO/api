@@ -39,7 +39,7 @@ describe('Items', () => {
     },
 
     function createAnItem(next) {
-      it('POST /lists/:listID/items - Create A Test Item', (done) => {
+      it('Create Test Item', (done) => {
         request(app)
         .post('/lists/' + testList + '/items')
         .set('Authorization', testUser.token)
@@ -55,7 +55,7 @@ describe('Items', () => {
     },
 
     function getAllItems(next) {
-      it('GET /lists/:listID/items - Get All Items', (done) => {
+      it('Get All Items', (done) => {
         request(app)
         .get('/lists/' + testList._id + '/items/')
         .set('Authorization', testUser.token)
@@ -66,7 +66,7 @@ describe('Items', () => {
     },
 
     function getItem(next) {
-      it('GET /lists/:listID/items/:itemID - Get A Single Item', (done) => {
+      it('Get Single Item', (done) => {
         request(app)
         .get('/lists/' + testList._id + '/items/' + testItem._id)
         .set('Authorization', testUser.token)
@@ -77,7 +77,7 @@ describe('Items', () => {
     },
 
     function deleteItem(next) {
-      it('DELETE /lists/:listID/items/:itemID - Delette An Item', (done) => {
+      it('Delete Single Item', (done) => {
         request(app)
         .del('/lists/' + testList._id + '/items/' + testItem._id)
         .set('Authorization', testUser.token)
@@ -87,7 +87,7 @@ describe('Items', () => {
     },
 
     function deleteList(next) {
-      it('DELETE /lists/:listID - Clean Up Test List', (done) => {
+      it('Clean Up Test List', (done) => {
         request(app)
         .del('/lists/' + testList._id)
         .set('Authorization', testUser.token)

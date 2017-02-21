@@ -24,7 +24,7 @@ describe('Lists', () => {
     },
 
     function createList(next) {
-      it('POST /lists - Create A List', (done) => {
+      it('Create A List', (done) => {
         request(app)
         .post('/lists')
         .set('Authorization', testUser.token)
@@ -40,7 +40,7 @@ describe('Lists', () => {
     },
 
     function getAllLists(next) {
-      it('GET /lists - Get All Lists', (done) => {
+      it('Get All Lists', (done) => {
         request(app)
         .get('/lists')
         .set('Authorization', testUser.token)
@@ -51,7 +51,7 @@ describe('Lists', () => {
     },
 
     function getList(next) {
-      it('GET /list/:listID - Get A Single List', (done) => {
+      it('Get Single List', (done) => {
         request(app)
         .get('/lists/' + testList._id)
         .set('Authorization', testUser.token)
@@ -62,7 +62,7 @@ describe('Lists', () => {
     },
 
     function deleteList(next) {
-      it('DELETE /lists/:listID - Delete A List', (done) => {
+      it('Delete List', (done) => {
         request(app)
         .del('/lists/' + testList._id)
         .set('Authorization', testUser.token)
