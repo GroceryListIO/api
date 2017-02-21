@@ -65,6 +65,17 @@ describe('Items', () => {
       next();
     },
 
+    function getItem(next) {
+      it('GET /lists/:listID/items/:itemID - Get A Single Item', (done) => {
+        request(app)
+        .get('/lists/' + testList._id + '/items/' + testItem._id)
+        .set('Authorization', testUser.token)
+        .expect('Content-Type', 'application/json; charset=utf-8')
+        .expect(200, done);
+      })
+      next();
+    },
+
     function deleteItem(next) {
       it('DELETE /lists/:listID/items/:itemID - Delette An Item', (done) => {
         request(app)

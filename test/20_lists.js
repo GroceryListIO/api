@@ -50,6 +50,17 @@ describe('Lists', () => {
       next();
     },
 
+    function getList(next) {
+      it('GET /list/:listID - Get A Single List', (done) => {
+        request(app)
+        .get('/lists/' + testList._id)
+        .set('Authorization', testUser.token)
+        .expect('Content-Type', 'application/json; charset=utf-8')
+        .expect(200, done);
+      })
+      next();
+    },
+
     function deleteList(next) {
       it('DELETE /lists/:listID - Delete A List', (done) => {
         request(app)
