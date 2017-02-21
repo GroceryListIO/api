@@ -13,9 +13,9 @@
 	- [/login](#login)
 	- [/register](#register)
 	- [/lists](#lists)
-	- [/lists/{listID}](#listslistid)
-	- [/lists/{listID}/items](#listslistiditems)
-	- [/lists/{listID}/items/{itemsID}](#listslistiditemsitemid)
+		- [/lists/{listID}](#listslistid)
+			- [/lists/{listID}/items](#listslistiditems)
+				- [/lists/{listID}/items/{itemsID}](#listslistiditemsitemid)
 - [Contributing](#contributing)
 - [LICENSE](#license)
 
