@@ -29,6 +29,6 @@ module.exports = (app) => {
   // Items
   app.get('/lists/:listID/items', requireAuth, itemController.getItems);
   app.post('/lists/:listID/items', requireAuth, itemController.newItem);
-  app.get('/lists/:listID/items/:itemID', requireAuth, itemController.getItems);
+  app.get('/lists/:listID/items/:itemID', requireAuth, itemController.getItem);
   app.delete('/lists/:listID/items/:itemID', requireAuth, itemController.deleteItem);
 };
