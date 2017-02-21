@@ -9,6 +9,7 @@
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
 - [API Endpoints](#api-endpoints)
+	- [Swagger](#swagger)
 	- [/health](#health)
 	- [/login](#login)
 	- [/register](#register)
@@ -56,7 +57,10 @@ The configuration file is located in /config/config.js
 
 ## API Endpoints
 
-**Swagger:** API is documented using swagger. http://localhost:8080/swagger
+### Swagger:
+API is documented using swagger. This is the best way to test api functionality. 
+- [View Online](https://rawgit.com/SmartGroceryList/api/master/swagger/)
+- Local Link - http://localhost:8080/swagger
 
 ### /health
 - GET - Returns true is application is running.
