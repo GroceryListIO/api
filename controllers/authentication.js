@@ -1,7 +1,17 @@
+/* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }]*/
 const jwt = require('jsonwebtoken');
 const config = require('../config/config.js');
 const User = require('../models/user');
+const List = require('../models/list');
 
+// Decode jwt into auth info
+function getAuth(req) {
+  const token = req.headers.authorization.split(' ')[1];
+  const authInfo = jwt.decode(token, config.jwtsecret);
+  return authInfo;
+}
+
+// Encode a jwt token
 function generateToken(user) {
   return jwt.sign(user, config.jwtsecret, {
     expiresIn: 10080, // in seconds
@@ -9,7 +19,6 @@ function generateToken(user) {
 }
 
 // Set user info from request
-/* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }]*/
 function setUserInfo(request) {
   return {
     _id: request._id,
@@ -73,24 +82,17 @@ exports.register = (req, res, next) => {
   return false;
 };
 
-/* authorization check TODO
-exports.ownerCheck = function (ownerID) {
-  return function (req, res, next) {
-    const user = req.user;
+exports.ownerCheck = (req, res, next) => {
+  const authInfo = getAuth(req);
+  List.findOne({ _id: req.params.listID }, (err, list) => {
+    if (err) throw err;
 
-    User.findById(user._id, (err, foundUser) => {
-      if (err) {
-        res.status(401).json({ error: 'User not found.' });
-        return next(err);
-      }
-
-      // Is this user the same as the owner
-      if (foundUser._id === ownerID) {
-        return next();
-      }
-
-      return res.status(401).json({ error: 'You are not authorized to view this content.' });
-    });
-  };
+    if (list.owner === authInfo._id) {
+      next();
+    } else {
+      res.status(401).json({ error: 'You are not authorized to make that action.' });
+    }
+  });
 };
-*/
+
+exports.getAuth = getAuth;

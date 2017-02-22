@@ -22,9 +22,9 @@ exports.newItem = (req, res) => {
 
 // Return a signle item
 exports.getItem = (req, res) => {
-  Item.findOne({ _id: req.params.itemID }, (err, list) => {
+  Item.findOne({ _id: req.params.itemID }, (err, item) => {
     if (err) throw err;
-    res.send(list);
+    res.send(item);
   });
 };
 
