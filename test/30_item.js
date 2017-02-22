@@ -29,7 +29,7 @@ describe('Items', () => {
         request(app)
         .post('/lists')
         .set('Authorization', testUser.token)
-        .send({ name: 'Test POST', description: 'Unit Test' })
+        .send({ name: 'Test List Items', description: 'Unit Test' })
         .end( (err, res) => {
           testList = res.body;
           done();
@@ -41,7 +41,7 @@ describe('Items', () => {
     function createAnItem(next) {
       it('Create Test Item', (done) => {
         request(app)
-        .post('/lists/' + testList + '/items')
+        .post('/lists/' + testList._id + '/items')
         .set('Authorization', testUser.token)
         .send({ name: 'Test Item' })
         .expect('Content-Type', 'application/json; charset=utf-8')
