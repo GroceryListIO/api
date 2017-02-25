@@ -14,9 +14,9 @@
 	- [/login](#login)
 	- [/register](#register)
 	- [/lists](#lists)
-		- [/lists/{listID}](#listslistid)
-			- [/lists/{listID}/items](#listslistiditems)
-				- [/lists/{listID}/items/{itemsID}](#listslistiditemsitemid)
+	- [/lists/{listID}](#listslistid)
+	- [/lists/{listID}/items](#listslistiditems)
+	- [/lists/{listID}/items/{itemsID}](#listslistiditemsitemid)
 - [Contributing](#contributing)
 - [LICENSE](#license)
 
@@ -58,7 +58,7 @@ The configuration file is located in /config/config.js
 ## API Endpoints
 
 ### Swagger:
-API is documented using swagger. This is the best way to test api functionality. 
+API is documented using swagger. This is the best way to test api functionality.
 - [View Online](https://rawgit.com/SmartGroceryList/api/master/swagger/)
 - Local Link - http://localhost:8080/swagger
 
@@ -77,6 +77,7 @@ API is documented using swagger. This is the best way to test api functionality.
 
 ### /lists/{listID}
 - GET - Return a single list
+- PUT - Update a list
 - DELETE - Delete a list
 
 ### /lists/{listID}/items
@@ -85,6 +86,7 @@ API is documented using swagger. This is the best way to test api functionality.
 
 ### /lists/{listID}/items/{itemID}
 - GET - Return a single item
+- PUT - Update an item
 - DELETE - Delete an item
 
 
