@@ -156,6 +156,31 @@
                     "Lists"
                 ]
             },
+            "put": {
+                "description": "Update a list.",
+                "parameters": [
+                    {
+                        "name": "listID",
+                        "in": "path",
+                        "description": "id of list",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Lists"
+                ]
+            },
             "delete": {
                 "description": "Delete a list.",
                 "parameters": [
@@ -244,6 +269,38 @@
         "/lists/{listID}/items/{itemID}": {
             "get": {
                 "description": "Get a single item",
+                "parameters": [
+                    {
+                        "name": "listID",
+                        "in": "path",
+                        "description": "id of list",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "itemID",
+                        "in": "path",
+                        "description": "id of item",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "tags": [
+                    "Items"
+                ]
+            },
+            "put": {
+                "description": "Update an item.",
                 "parameters": [
                     {
                         "name": "listID",
