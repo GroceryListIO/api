@@ -54,6 +54,22 @@ describe('Items', () => {
       next();
     },
 
+    function updateItem(next) {
+      it('Update An Item', (done) => {
+        request(app)
+        .put('/lists/' + testList._id + '/items/' + testItem._id)
+        .set('Authorization', testUser.token)
+        .send({ name: 'Test PUT Updated', description: 'Unit Test Updated' })
+        .expect('Content-Type', 'application/json; charset=utf-8')
+        .expect(200)
+        .end( (err, res) => {
+          testList = res.body;
+          done();
+        });
+      })
+      next();
+    },
+
     function getAllItems(next) {
       it('Get All Items', (done) => {
         request(app)

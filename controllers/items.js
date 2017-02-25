@@ -20,6 +20,14 @@ exports.newItem = (req, res) => {
   });
 };
 
+// Update an item
+exports.updateItem = (req, res) => {
+  Item.findOneAndUpdate({ _id: req.params.itemID }, req.body, { new: true }, (err, item) => {
+    if (err) throw err;
+    res.json(item);
+  });
+};
+
 // Return a signle item
 exports.getItem = (req, res) => {
   Item.findOne({ _id: req.params.itemID }, (err, item) => {

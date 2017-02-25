@@ -24,12 +24,14 @@ module.exports = (app) => {
   // Lists
   app.get('/lists', requireAuth, listsController.getLists);
   app.post('/lists', requireAuth, listsController.newList);
+  app.put('/lists/:listID', requireAuth, ownerCheck, listsController.updateList);
   app.get('/lists/:listID', requireAuth, ownerCheck, listsController.getList);
   app.delete('/lists/:listID', requireAuth, ownerCheck, listsController.deleteList);
 
   // Items
   app.get('/lists/:listID/items', requireAuth, ownerCheck, itemController.getItems);
   app.post('/lists/:listID/items', requireAuth, ownerCheck, itemController.newItem);
+  app.put('/lists/:listID/items/:itemID', requireAuth, ownerCheck, listsController.updateList);
   app.get('/lists/:listID/items/:itemID', requireAuth, ownerCheck, itemController.getItem);
   app.delete('/lists/:listID/items/:itemID', requireAuth, ownerCheck, itemController.deleteItem);
 };
