@@ -39,6 +39,22 @@ describe('Lists', () => {
       next();
     },
 
+    function updateList(next) {
+      it('Update A List', (done) => {
+        request(app)
+        .put('/lists/' + testList._id)
+        .set('Authorization', testUser.token)
+        .send({ name: 'Test PUT Updated', description: 'Unit Test Updated' })
+        .expect('Content-Type', 'application/json; charset=utf-8')
+        .expect(200)
+        .end( (err, res) => {
+          testList = res.body;
+          done();
+        });
+      })
+      next();
+    },
+
     function getAllLists(next) {
       it('Get All Lists', (done) => {
         request(app)

@@ -21,6 +21,14 @@ exports.newList = (req, res) => {
   });
 };
 
+// Update a list
+exports.updateList = (req, res) => {
+  List.findOneAndUpdate({ _id: req.params.listID }, req.body, { new: true }, (err, list) => {
+    if (err) throw err;
+    res.json(list);
+  });
+};
+
 // Delete a list
 exports.deleteList = (req, res) => {
   List.findOneAndRemove({ _id: req.params.listID }, (err) => {
