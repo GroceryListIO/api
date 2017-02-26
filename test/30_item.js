@@ -63,7 +63,7 @@ describe('Items', () => {
         .expect('Content-Type', 'application/json; charset=utf-8')
         .expect(200)
         .end( (err, res) => {
-          testList = res.body;
+          testItem = res.body;
           done();
         });
       })

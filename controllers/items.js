@@ -16,7 +16,7 @@ exports.newItem = (req, res) => {
 
   newItem.save((err) => {
     if (err) throw err;
-    res.send(newItem);
+    res.json(newItem);
   });
 };
 
@@ -32,7 +32,7 @@ exports.updateItem = (req, res) => {
 exports.getItem = (req, res) => {
   Item.findOne({ _id: req.params.itemID }, (err, item) => {
     if (err) throw err;
-    res.send(item);
+    res.json(item);
   });
 };
 
