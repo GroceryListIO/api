@@ -17,7 +17,7 @@ exports.newList = (req, res) => {
 
   newList.save((err) => {
     if (err) throw err;
-    res.send(newList);
+    res.json(newList);
   });
 };
 
@@ -41,6 +41,6 @@ exports.deleteList = (req, res) => {
 exports.getList = (req, res) => {
   List.findOne({ _id: req.params.listID }, (err, list) => {
     if (err) throw err;
-    res.send(list);
+    res.json(list);
   });
 };
