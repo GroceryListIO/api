@@ -1,4 +1,4 @@
-# Smart Grocery List API
+# GroceryList.io API
 
 [![Build Status](https://travis-ci.org/SmartGroceryList/api.svg?branch=master)](https://travis-ci.org/SmartGroceryList/api)
 [![Coverage Status](https://coveralls.io/repos/github/SmartGroceryList/api/badge.svg?branch=master)](https://coveralls.io/github/SmartGroceryList/api?branch=master)
