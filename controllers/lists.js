@@ -16,31 +16,43 @@ exports.newList = (req, res) => {
   newList.owner = authController.getAuth(req)._id;
 
   newList.save((err) => {
-    if (err) throw err;
-    res.json(newList);
+    if (err) {
+      res.status(400);
+    } else {
+      res.json(newList);
+    }
   });
 };
 
 // Update a list
 exports.updateList = (req, res) => {
   List.findOneAndUpdate({ _id: req.params.listID }, req.body, { new: true }, (err, list) => {
-    if (err) throw err;
-    res.json(list);
+    if (err) {
+      res.status(400);
+    } else {
+      res.json(newList);
+    }
   });
 };
 
 // Delete a list
 exports.deleteList = (req, res) => {
   List.findOneAndRemove({ _id: req.params.listID }, (err) => {
-    if (err) throw err;
-    res.send();
+    if (err) {
+      res.status(400);
+    } else {
+      res.json(newList);
+    }
   });
 };
 
 // Return a signle list
 exports.getList = (req, res) => {
   List.findOne({ _id: req.params.listID }, (err, list) => {
-    if (err) throw err;
-    res.json(list);
+    if (err) {
+      res.status(400);
+    } else {
+      res.json(newList);
+    }
   });
 };
