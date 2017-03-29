@@ -2,8 +2,8 @@
 
 [![Build Status](https://travis-ci.org/SmartGroceryList/api.svg?branch=master)](https://travis-ci.org/SmartGroceryList/api)
 [![Coverage Status](https://coveralls.io/repos/github/SmartGroceryList/api/badge.svg?branch=master)](https://coveralls.io/github/SmartGroceryList/api?branch=master)
-[![Dependencies Status](https://david-dm.org/SmartGroceryList/api.svg)](https://david-dm.org/SmartGroceryList/api)
-[![Dev Dependencies Status](https://david-dm.org/SmartGroceryList/api/dev-status.svg)](https://david-dm.org/SmartGroceryList/api?type=dev)
+[![Dependencies Status](https://david-dm.org/GroceryListIO/api.svg)](https://david-dm.org/SmartGroceryList/api)
+[![Dev Dependencies Status](https://david-dm.org/GroceryListIO/api/dev-status.svg)](https://david-dm.org/SmartGroceryList/api?type=dev)
 
 ## Table of Contents
 - [Getting Started](#getting-started)
