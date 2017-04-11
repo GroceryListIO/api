@@ -1,6 +1,6 @@
 # GroceryList.io API
 
-[![Build Status](https://travis-ci.org/SmartGroceryList/api.svg?branch=master)](https://travis-ci.org/SmartGroceryList/api)
+[![Build Status](https://travis-ci.org/GroceryListIO/api.svg?branch=master)](https://travis-ci.org/SmartGroceryList/api)
 [![Coverage Status](https://coveralls.io/repos/github/SmartGroceryList/api/badge.svg?branch=master)](https://coveralls.io/github/SmartGroceryList/api?branch=master)
 [![Dependencies Status](https://david-dm.org/GroceryListIO/api.svg)](https://david-dm.org/SmartGroceryList/api)
 [![Dev Dependencies Status](https://david-dm.org/GroceryListIO/api/dev-status.svg)](https://david-dm.org/SmartGroceryList/api?type=dev)
