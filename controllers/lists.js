@@ -30,18 +30,18 @@ exports.updateList = (req, res) => {
     if (err) {
       res.status(400);
     } else {
-      res.json(newList);
+      res.json(list);
     }
   });
 };
 
 // Delete a list
 exports.deleteList = (req, res) => {
-  List.findOneAndRemove({ _id: req.params.listID }, (err) => {
+  List.findOneAndRemove({ _id: req.params.listID }, (err, list) => {
     if (err) {
       res.status(400);
     } else {
-      res.json(newList);
+      res.json(list);
     }
   });
 };
@@ -52,7 +52,7 @@ exports.getList = (req, res) => {
     if (err) {
       res.status(400);
     } else {
-      res.json(newList);
+      res.json(list);
     }
   });
 };
